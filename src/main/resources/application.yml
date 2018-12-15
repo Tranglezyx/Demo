@@ -6,11 +6,11 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME:trangle}
     password: ${SPRING_DATASOURCE_PASSWORD:Trangle@8788583}
     driver-class-name: com.mysql.jdbc.Driver
-
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 logging:
   level:
-    com: debug
-    org: debug
+    com.tr.demo: debug
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml

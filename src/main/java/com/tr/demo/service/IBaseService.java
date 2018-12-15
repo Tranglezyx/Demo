@@ -22,4 +22,35 @@ public interface IBaseService<T> {
      * @return
      */
     List<T> select(T t);
+
+    /**
+     * 通用insert
+     *
+     * @param t
+     * @return
+     */
+    T insertSelective(T t);
+
+    /**
+     * 通用update
+     *
+     * @param t
+     * @return
+     */
+    T updateByPrimaryKey(T t);
+
+    /**
+     * 通用update
+     *
+     * @param t
+     * @return
+     */
+    T updateByPrimaryKeySelective(T t);
+
+    /**
+     * 删除
+     *
+     * @param object
+     */
+    void deleteByPrimaryKey(Object object);
 }

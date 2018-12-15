@@ -4,7 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @author trangle
@@ -19,7 +19,7 @@ public class User {
     private String userName;
     private String password;
 
-    private LocalDate creationDate;
+    private Date creationDate;
 
     public Long getUserId() {
         return userId;
@@ -45,11 +45,11 @@ public class User {
         this.password = password;
     }
 
-    public LocalDate getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 }

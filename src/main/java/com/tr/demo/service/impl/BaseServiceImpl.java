@@ -26,4 +26,27 @@ public class  BaseServiceImpl<T> implements IBaseService<T> {
     public List<T> select(T t) {
         return baseMapper.select(t);
     }
+
+    @Override
+    public T insertSelective(T t) {
+        baseMapper.insertSelective(t);
+        return t;
+    }
+
+    @Override
+    public T updateByPrimaryKey(T t) {
+        baseMapper.updateByPrimaryKey(t);
+        return t;
+    }
+
+    @Override
+    public T updateByPrimaryKeySelective(T t) {
+        baseMapper.updateByPrimaryKeySelective(t);
+        return t;
+    }
+
+    @Override
+    public void deleteByPrimaryKey(Object object) {
+        baseMapper.deleteByPrimaryKey(object);
+    }
 }

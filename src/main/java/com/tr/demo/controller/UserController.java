@@ -3,10 +3,7 @@ package com.tr.demo.controller;
 import com.tr.demo.dto.User;
 import com.tr.demo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,11 +18,22 @@ public class UserController {
 
     @PostMapping
     public User insertUser(@RequestBody User user){
-        return userService.insert(user);
+        return userService.insertSelective(user);
     }
 
     @GetMapping
-    public List<User> selecttUser(User user){
+    public List<User> selectUser(User user){
         return userService.select(user);
+    }
+
+    @PutMapping
+    public User updateUser(@RequestBody User user){
+        return userService.updateByPrimaryKeySelective(user);
+    }
+
+    @DeleteMapping
+    public Object deleteUser(@RequestParam Long id){
+        userService.deleteByPrimaryKey(id);
+        return "Success";
     }
 }
