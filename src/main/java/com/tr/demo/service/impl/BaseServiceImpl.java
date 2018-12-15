@@ -1,5 +1,7 @@
 package com.tr.demo.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.tr.demo.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,7 @@ import java.util.List;
  * @author trangle
  */
 @Service
-public class  BaseServiceImpl<T> implements IBaseService<T> {
+public class BaseServiceImpl<T> implements IBaseService<T> {
 
     @Autowired
     private BaseMapper<T> baseMapper;
@@ -23,7 +25,8 @@ public class  BaseServiceImpl<T> implements IBaseService<T> {
     }
 
     @Override
-    public List<T> select(T t) {
+    public List<T> select(T t, PageInfo pageInfo) {
+        PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
         return baseMapper.select(t);
     }
 

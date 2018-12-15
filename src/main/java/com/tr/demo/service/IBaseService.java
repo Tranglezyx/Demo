@@ -1,5 +1,7 @@
 package com.tr.demo.service;
 
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 /**
@@ -19,9 +21,10 @@ public interface IBaseService<T> {
      * 通用查询
      *
      * @param t
+     * @param pageInfo
      * @return
      */
-    List<T> select(T t);
+    List<T> select(T t, PageInfo pageInfo);
 
     /**
      * 通用insert
