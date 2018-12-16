@@ -20,9 +20,23 @@
         <mysql.version>5.1.41</mysql.version>
         <tk.mapper.version>2.0.2</tk.mapper.version>
         <pagehelper.version>1.2.5</pagehelper.version>
+        <swagger.version>2.7.0</swagger.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
