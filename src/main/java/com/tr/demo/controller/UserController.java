@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class UserController {
 
     @GetMapping
     @ApiOperation(value = "分页查询用户")
-    public List<User> selectUser(User user, PageInfo pageInfo) {
+    public List<User> selectUser(User user, @ApiIgnore PageInfo pageInfo) {
         return userService.select(user, pageInfo);
     }
 

@@ -4,7 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tr.demo.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
 /**
  * @author trangle
  */
-@Service
 public class BaseServiceImpl<T> implements IBaseService<T> {
 
     @Autowired
@@ -51,5 +49,26 @@ public class BaseServiceImpl<T> implements IBaseService<T> {
     @Override
     public void deleteByPrimaryKey(Object object) {
         baseMapper.deleteByPrimaryKey(object);
+    }
+
+    /**
+     * 查询所有
+     *
+     * @return
+     */
+    @Override
+    public List<T> selectAll() {
+        return baseMapper.selectAll();
+    }
+
+    /**
+     * 查询一个
+     *
+     * @param t
+     * @return
+     */
+    @Override
+    public T selectOne(T t) {
+        return baseMapper.selectOne(t);
     }
 }

@@ -1,6 +1,7 @@
 package com.tr.demo.service;
 
 import com.github.pagehelper.PageInfo;
+import com.tr.demo.dto.User;
 
 import java.util.List;
 
@@ -56,4 +57,19 @@ public interface IBaseService<T> {
      * @param object
      */
     void deleteByPrimaryKey(Object object);
+
+    /**
+     * 查询所有
+     *
+     * @return
+     */
+    List<T> selectAll();
+
+    /**
+     * 查询一个
+     *
+     * @param t
+     * @return
+     */
+    T selectOne(T t);
 }

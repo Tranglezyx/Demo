@@ -34,7 +34,7 @@ public class Swagger2 {
                 //页面标题
                 .title("Spring Boot集成Swagger2")
                 //创建人
-                .contact(new Contact("Trangle","","407833@qq.com"))
+                .contact(new Contact("Trangle", "", "407833@qq.com"))
                 //版本号
                 .version("1.0")
                 //描述
