@@ -1,9 +1,8 @@
 package com.tr.demo.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.tr.demo.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
@@ -16,59 +15,70 @@ public class BaseServiceImpl<T> implements IBaseService<T> {
     @Autowired
     private BaseMapper<T> baseMapper;
 
+
     @Override
-    public T insert(T t) {
-        baseMapper.insert(t);
-        return t;
+    @Transactional(rollbackFor = Exception.class)
+    public int deleteByPrimaryKey(Object o) {
+        return baseMapper.deleteByPrimaryKey(o);
     }
 
     @Override
-    public List<T> select(T t, PageInfo pageInfo) {
-        PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
-        return baseMapper.select(t);
+    @Transactional(rollbackFor = Exception.class)
+    public int delete(T t) {
+        return baseMapper.delete(t);
     }
 
     @Override
-    public T insertSelective(T t) {
-        baseMapper.insertSelective(t);
-        return t;
+    @Transactional(rollbackFor = Exception.class)
+    public int insert(T t) {
+        return baseMapper.insert(t);
     }
 
     @Override
-    public T updateByPrimaryKey(T t) {
-        baseMapper.updateByPrimaryKey(t);
-        return t;
+    @Transactional(rollbackFor = Exception.class)
+    public int insertSelective(T t) {
+        return baseMapper.insertSelective(t);
     }
 
     @Override
-    public T updateByPrimaryKeySelective(T t) {
-        baseMapper.updateByPrimaryKeySelective(t);
-        return t;
+    public boolean existsWithPrimaryKey(Object o) {
+        return baseMapper.existsWithPrimaryKey(o);
     }
 
-    @Override
-    public void deleteByPrimaryKey(Object object) {
-        baseMapper.deleteByPrimaryKey(object);
-    }
-
-    /**
-     * 查询所有
-     *
-     * @return
-     */
     @Override
     public List<T> selectAll() {
         return baseMapper.selectAll();
     }
 
-    /**
-     * 查询一个
-     *
-     * @param t
-     * @return
-     */
+    @Override
+    public T selectByPrimaryKey(Object o) {
+        return baseMapper.selectByPrimaryKey(o);
+    }
+
+    @Override
+    public int selectCount(T t) {
+        return baseMapper.selectCount(t);
+    }
+
+    @Override
+    public List<T> select(T t) {
+        return baseMapper.select(t);
+    }
+
     @Override
     public T selectOne(T t) {
         return baseMapper.selectOne(t);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public int updateByPrimaryKey(T t) {
+        return baseMapper.updateByPrimaryKey(t);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public int updateByPrimaryKeySelective(T t) {
+        return baseMapper.updateByPrimaryKeySelective(t);
     }
 }
