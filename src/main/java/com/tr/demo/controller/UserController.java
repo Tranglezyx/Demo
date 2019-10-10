@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tr.demo.dto.User;
+import com.tr.demo.mapper.UserMapper;
 import com.tr.demo.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,6 +26,9 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @PostMapping("/test")
     @ApiOperation(value = "新增用户")
     public Boolean insertUser(@RequestBody Map<String, Object> map) {
@@ -43,6 +47,12 @@ public class UserController {
         PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
         return userService.selectList(new QueryWrapper<User>().lambda()
                 .like(User::getUserName, user.getUserName()));
+    }
+
+    @GetMapping("/select")
+    @ApiOperation(value = "分页查询用户")
+    public List<User> select() {
+        return userMapper.selectUser();
     }
 
     @PutMapping
