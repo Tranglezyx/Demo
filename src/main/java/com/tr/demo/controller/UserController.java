@@ -1,5 +1,6 @@
 package com.tr.demo.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tr.demo.dto.User;
@@ -26,33 +27,34 @@ public class UserController {
 
     @PostMapping("/test")
     @ApiOperation(value = "新增用户")
-    public Boolean insertUser(@RequestBody Map<String,Object> map) {
+    public Boolean insertUser(@RequestBody Map<String, Object> map) {
         return true;
     }
 
     @PostMapping
     @ApiOperation(value = "新增用户")
     public Boolean insertUser(@RequestBody User user) {
-        return userService.insertSelective(user) > 0;
+        return userService.insert(user) > 0;
     }
 
     @GetMapping
     @ApiOperation(value = "分页查询用户")
     public List<User> selectUser(User user, @ApiIgnore PageInfo pageInfo) {
         PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
-        return userService.select(user);
+        return userService.selectList(new QueryWrapper<User>().lambda()
+                .like(User::getUserName, user.getUserName()));
     }
 
     @PutMapping
     @ApiOperation(value = "更新用户")
     public Boolean updateUser(@RequestBody User user) {
-        return userService.updateByPrimaryKeySelective(user) > 0;
+        return userService.updateById(user) > 0;
     }
 
     @DeleteMapping
     @ApiOperation(value = "删除用户")
     public Object deleteUser(@RequestParam Long id) {
-        userService.deleteByPrimaryKey(id);
+        userService.deleteById(id);
         return "Success";
     }
 }

@@ -1,23 +1,22 @@
 package com.tr.demo.dto;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * @author trangle
  */
 @ApiModel
-@Table(name = "tr_user")
+@Data
+@TableName(value = "tr_user")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @TableId
     private Long userId;
 
     @ApiModelProperty("用户名")
@@ -25,40 +24,4 @@ public class User {
     private String password;
 
     private Date creationDate;
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public User setUserId(Long userId) {
-        this.userId = userId;
-        return this;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public User setUserName(String userName) {
-        this.userName = userName;
-        return this;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public User setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public User setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-        return this;
-    }
 }

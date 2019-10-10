@@ -1,6 +1,12 @@
 package com.tr.demo.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author trangle
@@ -8,98 +14,125 @@ import java.util.List;
 public interface IBaseService<T> {
 
     /**
-     * 根据主键删除
-     *
-     * @param o
-     * @return
+     * 插入一条记录
+     * <p>
+     * entity 实体对象
      */
-    int deleteByPrimaryKey(Object o);
+    int insert(T entity);
 
     /**
-     * 根据字段数据删除
-     *
-     * @param t
-     * @return
+     * 根据 ID 删除
+     * <p>
+     * id 主键ID
      */
-    int delete(T t);
+    int deleteById(Serializable id);
 
     /**
-     * 新增
-     *
-     * @param t
-     * @return
+     * 根据 columnMap 条件，删除记录
+     * <p>
+     * columnMap 表字段 map 对象
      */
-    int insert(T t);
+    int deleteByMap(Map<String, Object>columnMap);
 
     /**
-     * 新增
-     * 只新增对象中字段不为null的数据
-     *
-     * @param t
-     * @return
+     * 根据 entity 条件，删除记录
+     * <p>
+     * wrapper 实体对象封装操作类（可以为 null）
      */
-    int insertSelective(T t);
+    int delete(Wrapper<T> wrapper);
 
     /**
-     * 判断是否存在
-     *
-     * @param o
-     * @return
+     * 删除（根据ID 批量删除）
+     * <p>
+     * idList 主键ID列表(不能为 null 以及 empty)
      */
-    boolean existsWithPrimaryKey(Object o);
+    int deleteBatchIds(Collection<? extends Serializable> idList);
 
     /**
-     * 查询所有数据
-     *
-     * @return
+     * 根据 ID 修改
+     * <p>
+     * entity 实体对象
      */
-    List<T> selectAll();
+    int updateById(T entity);
 
     /**
-     * 根据主键查询
-     *
-     * @param o
-     * @return
+     * 根据 whereEntity 条件，更新记录
+     * <p>
+     * entity        实体对象 (set 条件值,可以为 null)
+     * updateWrapper 实体对象封装操作类（可以为 null,里面的 entity 用于生成 where 语句）
      */
-    T selectByPrimaryKey(Object o);
+    int update(T entity, Wrapper<T> updateWrapper);
 
     /**
-     * 查询数据量
-     *
-     * @param t
-     * @return
+     * 根据 ID 查询
+     * <p>
+     * id 主键ID
      */
-    int selectCount(T t);
+    T selectById(Serializable id);
 
     /**
-     * 查询数据
-     *
-     * @param t
-     * @return
+     * 查询（根据ID 批量查询）
+     * <p>
+     * idList 主键ID列表(不能为 null 以及 empty)
      */
-    List<T> select(T t);
+    List<T> selectBatchIds(Collection<? extends Serializable> idList);
 
     /**
-     * 根据条件只查询一个，如果查询结果为多个会报错
-     *
-     * @param t
-     * @return
+     * 查询（根据 columnMap 条件）
+     * <p>
+     * columnMap 表字段 map 对象
      */
-    T selectOne(T t);
+    List<T> selectByMap(Map<String, Object> columnMap);
 
     /**
-     * 根据主键更新
-     *
-     * @param t
-     * @return
+     * 根据 entity 条件，查询一条记录
+     * <p>
+     * queryWrapper 实体对象封装操作类（可以为 null）
      */
-    int updateByPrimaryKey(T t);
+    T selectOne(Wrapper<T> queryWrapper);
 
     /**
-     * 根据主键更新当前对象字段不为null的数据
-     *
-     * @param t
-     * @return
+     * 根据 Wrapper 条件，查询总记录数
+     * <p>
+     * queryWrapper 实体对象封装操作类（可以为 null）
      */
-    int updateByPrimaryKeySelective(T t);
+    Integer selectCount(Wrapper<T> queryWrapper);
+
+    /**
+     * 根据 entity 条件，查询全部记录
+     * <p>
+     * queryWrapper 实体对象封装操作类（可以为 null）
+     */
+    List<T> selectList(Wrapper<T> queryWrapper);
+
+    /**
+     * 根据 Wrapper 条件，查询全部记录
+     * <p>
+     * queryWrapper 实体对象封装操作类（可以为 null）
+     */
+    List<Map<String, Object>> selectMaps(Wrapper<T> queryWrapper);
+
+    /**
+     * 根据 Wrapper 条件，查询全部记录
+     * <p>注意： 只返回第一个字段的值</p>
+     * <p>
+     * queryWrapper 实体对象封装操作类（可以为 null）
+     */
+    List<Object> selectObjs(Wrapper<T> queryWrapper);
+
+    /**
+     * 根据 entity 条件，查询全部记录（并翻页）
+     * <p>
+     * page         分页查询条件（可以为 RowBounds.DEFAULT）
+     * queryWrapper 实体对象封装操作类（可以为 null）
+     */
+    IPage<T> selectPage(IPage<T> page, Wrapper<T> queryWrapper);
+
+    /**
+     * 根据 Wrapper 条件，查询全部记录（并翻页）
+     * <p>
+     * page         分页查询条件
+     * queryWrapper 实体对象封装操作类
+     */
+    IPage<Map<String, Object>> selectMapsPage(IPage<T> page, Wrapper<T> queryWrapper);
 }
