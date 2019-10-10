@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * @author trangle
  */
-@Mapper
 public interface UserRoleMapper extends BaseMapper<UserRole> {
 
     /**

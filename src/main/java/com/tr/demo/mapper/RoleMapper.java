@@ -7,6 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * @author trangle
  */
-@Mapper
 public interface RoleMapper extends BaseMapper<Role> {
 }

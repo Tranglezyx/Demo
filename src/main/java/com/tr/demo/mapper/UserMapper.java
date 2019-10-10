@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * @author trangle
  */
-@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
     List<User> selectUser();
