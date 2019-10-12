@@ -29,12 +29,6 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
-    @PostMapping("/test")
-    @ApiOperation(value = "新增用户")
-    public Boolean insertUser(@RequestBody Map<String, Object> map) {
-        return true;
-    }
-
     @PostMapping
     @ApiOperation(value = "新增用户")
     public Boolean insertUser(@RequestBody User user) {

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.tr.demo.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -20,36 +21,43 @@ public class BaseServiceImpl<T> implements IBaseService<T> {
     private BaseMapper<T> baseMapper;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int insert(T entity) {
         return baseMapper.insert(entity);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int deleteById(Serializable id) {
         return baseMapper.deleteById(id);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int deleteByMap(Map<String, Object> columnMap) {
         return baseMapper.deleteByMap(columnMap);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int delete(Wrapper<T> wrapper) {
         return baseMapper.delete(wrapper);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int deleteBatchIds(Collection<? extends Serializable> idList) {
         return baseMapper.deleteBatchIds(idList);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int updateById(T entity) {
         return baseMapper.updateById(entity);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int update(T entity, Wrapper<T> updateWrapper) {
         return baseMapper.update(entity, updateWrapper);
     }
