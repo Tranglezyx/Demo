@@ -40,7 +40,7 @@ public class UserController {
     public List<User> selectUser(User user, @ApiIgnore PageInfo pageInfo) {
         PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
         return userService.selectList(new QueryWrapper<User>().lambda()
-                .like(User::getUserName, user.getUserName()));
+                .eq(user.getUserName() != null, User::getUserName, user.getUserName()));
     }
 
     @GetMapping("/select")
