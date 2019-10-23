@@ -1,6 +1,6 @@
 package com.tr.demo.service;
 
-import com.tr.demo.dto.User;
+import com.tr.demo.entity.User;
 
 /**
  * @author trangle

@@ -1,7 +1,7 @@
 package com.tr.demo.service;
 
-import com.tr.demo.dto.User;
-import com.tr.demo.dto.UserRole;
+import com.tr.demo.entity.User;
+import com.tr.demo.entity.UserRole;
 
 import java.util.List;
 

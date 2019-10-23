@@ -1,19 +1,18 @@
-package com.tr.demo.dto;
+package com.tr.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-
 
 /**
  * @author trangle
  */
 @Data
-@TableName(value = "tr_user_role")
-public class UserRole {
+@TableName(value = "tr_role")
+public class Role {
 
-    private Long userId;
+    @TableId
     private Long roleId;
 
     private String roleName;
-    private String userName;
 }

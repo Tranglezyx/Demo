@@ -1,8 +1,7 @@
 package com.tr.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.tr.demo.dto.User;
-import org.apache.ibatis.annotations.Mapper;
+import com.tr.demo.entity.User;
 
 import java.util.List;
 

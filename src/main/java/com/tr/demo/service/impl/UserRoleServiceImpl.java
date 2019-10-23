@@ -1,7 +1,7 @@
 package com.tr.demo.service.impl;
 
-import com.tr.demo.dto.User;
-import com.tr.demo.dto.UserRole;
+import com.tr.demo.entity.User;
+import com.tr.demo.entity.UserRole;
 import com.tr.demo.mapper.UserRoleMapper;
 import com.tr.demo.service.IUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;

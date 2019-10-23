@@ -1,6 +1,6 @@
 package com.tr.demo.listener;
 
-import com.tr.demo.dto.User;
+import com.tr.demo.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;

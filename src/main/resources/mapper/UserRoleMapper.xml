@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tr.demo.mapper.UserRoleMapper">
 
-    <select id="selectUserRole" resultType="com.tr.demo.dto.UserRole">
+    <select id="selectUserRole" resultType="com.tr.demo.entity.UserRole">
         select tu.user_name,tr.role_name from tr_user tu,tr_role tr,tr_user_role tur where tur.user_id = tu.user_id AND tur.role_id = tr.role_id
         <if test="userId != null">
             AND tur.user_id = #{userId}

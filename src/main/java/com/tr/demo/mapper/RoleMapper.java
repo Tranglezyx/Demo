@@ -1,8 +1,7 @@
 package com.tr.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.tr.demo.dto.Role;
-import org.apache.ibatis.annotations.Mapper;
+import com.tr.demo.entity.Role;
 
 /**
  * @author trangle

@@ -1,16 +1,16 @@
-package com.tr.demo.dto;
+package com.tr.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author trangle
@@ -19,7 +19,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
 @TableName(value = "tr_user")
 public class User {
 
@@ -31,4 +30,7 @@ public class User {
     private String password;
 
     private Date creationDate;
+
+    @TableField(exist = false)
+    private List<Role> roleList;
 }

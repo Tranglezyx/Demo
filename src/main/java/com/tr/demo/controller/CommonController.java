@@ -1,6 +1,6 @@
 package com.tr.demo.controller;
 
-import com.tr.demo.dto.User;
+import com.tr.demo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.PostMapping;

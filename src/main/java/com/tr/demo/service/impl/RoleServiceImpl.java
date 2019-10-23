@@ -1,6 +1,6 @@
 package com.tr.demo.service.impl;
 
-import com.tr.demo.dto.Role;
+import com.tr.demo.entity.Role;
 import com.tr.demo.service.IRoleService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,9 +1,8 @@
 package com.tr.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.tr.demo.dto.User;
-import com.tr.demo.dto.UserRole;
-import org.apache.ibatis.annotations.Mapper;
+import com.tr.demo.entity.User;
+import com.tr.demo.entity.UserRole;
 
 import java.util.List;
 
