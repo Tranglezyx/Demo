@@ -1,7 +1,6 @@
 package com.tr.demo.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tr.demo.dto.ResultDTO;
@@ -34,9 +33,6 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
-
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @PostMapping
     @ApiOperation(value = "新增用户")
