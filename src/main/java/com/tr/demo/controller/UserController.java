@@ -42,7 +42,7 @@ public class UserController {
 
     @GetMapping
     @ApiOperation(value = "分页查询用户")
-    public Object selectUser(User user, int pageNum, int pageSize){
+    public ResultDTO selectUser(User user, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<User> userList = userService.selectList(new QueryWrapper<User>()
                 .lambda()
@@ -51,10 +51,10 @@ public class UserController {
     }
 
     @GetMapping("/select")
-    @ApiOperation(value = "分页查询用户")
-    public List<User> select(@ApiIgnore PageInfo pageInfo) {
-        PageHelper.startPage(pageInfo.getPageNum(), pageInfo.getPageSize());
-        return userMapper.selectUser();
+    public ResultDTO select() {
+        return ResultDTO.success(userMapper.selectOne(new QueryWrapper<User>()
+                .lambda()
+                .like(User::getUserName, "qq")));
     }
 
     @PutMapping

@@ -15,7 +15,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/common")
-public class CommonController {
+public class EventController {
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
