@@ -57,6 +57,11 @@ public class UserController {
                 .like(User::getUserName, "qq")));
     }
 
+    @GetMapping("/select-type-count")
+    public ResultDTO selectTypeCount() {
+        return ResultDTO.success(userMapper.selectTypeCount());
+    }
+
     @PutMapping
     @ApiOperation(value = "更新用户")
     public Boolean updateUser(@RequestBody User user) {

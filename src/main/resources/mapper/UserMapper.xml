@@ -5,4 +5,15 @@
     <select id="selectUser" resultType="com.tr.demo.entity.User">
         select * from tr_user where user_name is not null
     </select>
+
+    <select id="selectTypeCount" resultType="java.util.Map">
+        SELECT
+            user_type,
+            count( 1 ) count
+        FROM
+            tr_user
+        GROUP BY
+            user_type
+    </select>
+
 </mapper>
