@@ -7,6 +7,8 @@ import com.tr.demo.dto.ResultDTO;
 import com.tr.demo.entity.User;
 import com.tr.demo.mapper.UserMapper;
 import com.tr.demo.service.IUserService;
+import com.tr.demo.util.ValidationResult;
+import com.tr.demo.util.ValidationUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -37,6 +39,10 @@ public class UserController {
     @PostMapping
     @ApiOperation(value = "新增用户")
     public Boolean insertUser(@RequestBody User user) {
+        ValidationResult validationResult = ValidationUtils.validateEntity(user);
+        if (validationResult.isHasErrors()) {
+            throw new RuntimeException(validationResult.getErrorMessage());
+        }
         return userService.insert(user) > 0;
     }
 
