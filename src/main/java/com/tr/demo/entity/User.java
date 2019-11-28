@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @TableName(value = "tr_user")
-public class User {
+public class User implements Serializable {
 
     @TableId
     private Long userId;

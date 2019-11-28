@@ -1,6 +1,7 @@
 package com.tr.demo.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.tr.demo.dto.ResultDTO;
@@ -61,6 +62,15 @@ public class UserController {
         return ResultDTO.success(userMapper.selectOne(new QueryWrapper<User>()
                 .lambda()
                 .like(User::getUserName, "qq")));
+    }
+
+    @PostMapping("/delete-by-name")
+    @ApiOperation(value = "更新用户")
+    public Boolean deleteUserByName(@RequestBody User user) {
+        return userMapper.update(null, new UpdateWrapper<User>()
+                .lambda()
+                .set(User::getPassword, user.getPassword())
+                .eq(User::getUserName, user.getUserName())) > 0;
     }
 
     @GetMapping("/select-type-count")
