@@ -53,7 +53,8 @@ public class UserController {
         PageHelper.startPage(pageNum, pageSize);
         List<User> userList = userService.selectList(new QueryWrapper<User>()
                 .lambda()
-                .eq(user.getUserName() != null, User::getUserName, user.getUserName()));
+                .eq(user.getUserName() != null, User::getUserName, user.getUserName())
+                .groupBy(User::getUserName));
         return ResultDTO.success(userList);
     }
 
@@ -61,7 +62,8 @@ public class UserController {
     public ResultDTO select() {
         return ResultDTO.success(userMapper.selectOne(new QueryWrapper<User>()
                 .lambda()
-                .like(User::getUserName, "qq")));
+                .likeRight(User::getUserName, "qq")
+                .last("limit 1")));
     }
 
     @PostMapping("/delete-by-name")

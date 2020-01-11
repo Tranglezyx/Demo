@@ -13,9 +13,10 @@ public class ExceptionProcessor implements HandlerExceptionResolver {
 
     @Override
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setStatus(HttpStatus.valueOf(200));
-        modelAndView.setViewName("/static/login.html");
-        return modelAndView;
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setStatus(HttpStatus.valueOf(200));
+//        modelAndView.setViewName("/static/login.html");
+//        return modelAndView;
+        return null;
     }
 }
