@@ -32,7 +32,7 @@ public class Swagger2 {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("Spring Boot集成Swagger2")
+                .title("Swagger2")
                 //创建人
                 .contact(new Contact("Trangle", "", "407833@qq.com"))
                 //版本号

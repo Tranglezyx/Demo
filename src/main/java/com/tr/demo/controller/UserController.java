@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.tr.demo.controller.req.UserParam;
 import com.tr.demo.dto.ResultDTO;
 import com.tr.demo.entity.User;
 import com.tr.demo.mapper.UserMapper;
@@ -49,11 +50,11 @@ public class UserController {
 
     @GetMapping
     @ApiOperation(value = "分页查询用户")
-    public ResultDTO selectUser(User user, int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+    public ResultDTO selectUser(UserParam param) {
+        PageHelper.startPage(param.getPageNum(), param.getPageSize());
         List<User> userList = userService.selectList(new QueryWrapper<User>()
                 .lambda()
-                .eq(user.getUserName() != null, User::getUserName, user.getUserName()));
+                .eq(param.getUserName() != null, User::getUserName, param.getUserName()));
         return ResultDTO.success(userList);
     }
 

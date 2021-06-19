@@ -1,8 +1,10 @@
+server:
+  port: 8080
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://Trangle:3306/tr_db?useUnicode=true&characterEncoding=utf-8&useSSL=false}
-    username: ${SPRING_DATASOURCE_USERNAME:trangle}
-    password: ${SPRING_DATASOURCE_PASSWORD:Trangle@8788583}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
     driver-class-name: com.mysql.jdbc.Driver
     druid:
       initial-size: 4
