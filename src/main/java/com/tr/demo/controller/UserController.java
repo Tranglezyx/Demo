@@ -13,6 +13,7 @@ import com.tr.demo.util.ValidationResult;
 import com.tr.demo.util.ValidationUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -28,15 +29,13 @@ import java.util.List;
 @Api(tags = "UserController")
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
-    private IUserService userService;
-
-    @Autowired
-    private UserMapper userMapper;
+    private final IUserService userService;
+    private final UserMapper userMapper;
 
     @PostMapping
     @ApiOperation(value = "新增用户")
@@ -93,7 +92,7 @@ public class UserController {
     }
 
     @PostMapping("/copy")
-    public Object deleteUser(@RequestBody User user) {
+    public Object copyUser(@RequestBody User user) {
         User tempUser = new User();
         BeanUtils.copyProperties(user, tempUser);
         System.out.println(user.getRoleList());
