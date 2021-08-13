@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class TestAspect {
 
-    @Pointcut("execution(public * com.tr.test.service.* (..))")
+    @Pointcut("execution(* com.tr.test.service.*.* (..))")
     public void pointCut() {
 
     }

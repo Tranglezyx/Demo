@@ -17,7 +17,7 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public TestService demoService(){
+    public TestService testService(){
         return new TestService();
     }
 }
