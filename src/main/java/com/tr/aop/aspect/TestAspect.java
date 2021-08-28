@@ -1,4 +1,4 @@
-package com.tr.test.aspect;
+package com.tr.aop.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class TestAspect {
 
-    @Pointcut("execution(* com.tr.test.service.*.* (..))")
+    @Pointcut("execution(* com.tr.aop.service.*.* (..))")
     public void pointCut() {
 
     }

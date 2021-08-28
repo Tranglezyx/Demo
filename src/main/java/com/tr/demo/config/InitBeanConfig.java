@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class InitBeanConfig {
 
-    @Bean(initMethod = "initMethod")
+//    @Bean(initMethod = "initMethod")
     public DemoBean demoBean(){
         return new DemoBean();
     }

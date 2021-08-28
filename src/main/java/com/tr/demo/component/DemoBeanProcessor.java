@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author trangle
  */
-@Component
+//@Component
 public class DemoBeanProcessor implements BeanPostProcessor, BeanFactoryPostProcessor {
 
     @Override

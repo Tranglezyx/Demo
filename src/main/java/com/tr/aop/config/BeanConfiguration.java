@@ -1,7 +1,7 @@
-package com.tr.test.config;
+package com.tr.aop.config;
 
-import com.tr.test.aspect.TestAspect;
-import com.tr.test.service.TestService;
+import com.tr.aop.aspect.TestAspect;
+import com.tr.aop.service.TestService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
