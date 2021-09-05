@@ -16,5 +16,6 @@ public class TxApplication {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(TxApplication.class);
         TxService txService = applicationContext.getBean(TxService.class);
         txService.insertTwoUser();
+//        txService.insertUser();
     }
 }

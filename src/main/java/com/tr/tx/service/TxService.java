@@ -24,9 +24,12 @@ public class TxService {
         return 2;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public int insertUser() {
         Long id = System.currentTimeMillis();
         String userName = "tx_user_test";
+        txDao.insertUser(id, userName);
+        int i = 1 / 0;
         return txDao.insertUser(id, userName);
     }
 }
